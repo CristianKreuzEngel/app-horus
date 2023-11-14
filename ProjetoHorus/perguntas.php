@@ -1,0 +1,444 @@
+<?php
+include_once('config.php');
+// include_once('formulario.php');
+  if(isset($_POST['submit'])){
+
+    $nome = $_POST['nome'];
+    $sobrenome = $_POST['sobrenome'];
+    $telefone = $_POST['telefone'];
+    $cidade = $_POST['cidade'];
+
+    $result = mysqli_query($conection, "INSERT INTO user(nome, sobrenome, telefone, cidade) VALUES ('$nome', '$sobrenome', '$telefone', '$cidade');");
+  }
+?>
+<!DOCTYPE html>
+<html lang="ptbr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+  <header class="cabecalho">
+      <img src="img/LOGO NOVA HORUS.webp" class="logo" />
+      <h1 id="titulo">Teste Vocacional</h1>
+    </header>
+    <main class="container">
+      <form onsubmit="enviarDados()">
+      <div class="campo">
+        <p>1. Na escola, você prefere assuntos ligados a:</p>
+        <input type="radio" name="question1" value="a" />a) Arte, esportes e
+        atividades extracurriculares<br />
+        <input type="radio" name="question1" value="b" />b) Biologia e
+        genética<br />
+        <input type="radio" name="question1" value="c" />c) Ciências humanas,
+        idiomas<br />
+        <input type="radio" name="question1" value="d" />d) Ciências exatas<br />
+      </div>
+      <div class="campo">
+        <p>2. Você prefere levar sua vida:</p>
+        <input type="radio" name="question2" value="a" />a) Com pouca rotina e
+        poucas regras<br />
+        <input type="radio" name="question2" value="b" />b) Com regras definidas
+        e disciplina<br />
+        <input type="radio" name="question2" value="c" />c) Interagindo com todo
+        tipo de pessoa<br />
+        <input type="radio" name="question2" value="d" />d) Com muita autonomia:
+        “na sua”<br />
+      </div>
+      <div class="campo">
+        <p>3. Você se descreveria como uma pessoa:</p>
+        <input type="radio" name="question3" value="a" />a) Impulsiva e um tanto
+        aventureira<br />
+        <input type="radio" name="question3" value="b" />b) Cautelosa e
+        responsável<br />
+        <input type="radio" name="question3" value="c" />c) Entusiasmada e muito
+        amiga<br />
+        <input type="radio" name="question3" value="d" />d) Calma e diferente da
+        maioria<br />
+      </div>
+      <div class="campo">
+        <p>4. Você se considera uma pessoa:</p>
+        <input type="radio" name="question4" value="a" />a) Prática e hábil para
+        improvisar<br />
+        <input type="radio" name="question4" value="b" />b) Batalhadora, que
+        sabe o que quer<br />
+        <input type="radio" name="question4" value="c" />c) Preocupada com
+        questões humanas<br />
+        <input type="radio" name="question4" value="d" />d) Capacitada para
+        criar e inventar<br />
+      </div>
+      <div class="campo">
+        <p>5. De quais características suas você sente orgulho:</p>
+        <input type="radio" name="question5" value="a" />a) Audácia e facilidade
+        para lidar com o inesperado<br />
+        <input type="radio" name="question5" value="b" />b) Senso de dever e
+        capacidade de dar exemplo<br />
+        <input type="radio" name="question5" value="c" />c) Idealismo e
+        disposição para compreender os outros<br />
+        <input type="radio" name="question5" value="d" />d) Engenhosidade e
+        rapidez mental<br />
+      </div>
+      <div class="campo">
+        <p>6. Costuma confiar mais em:</p>
+        <input type="radio" name="question6" value="a" />a) Percepção
+        imediata<br />
+        <input type="radio" name="question6" value="b" />b) Costumes e
+        tradições<br />
+        <input type="radio" name="question6" value="c" />c) Intuição<br />
+        <input type="radio" name="question6" value="d" />d) Razão e lógica<br />
+      </div>
+      <div class="campo">
+        <p>7. Quase sempre, você gosta de:</p>
+        <input type="radio" name="question7" value="a" />a) Causar impacto: os
+        “holofotes” o atraem<br />
+        <input type="radio" name="question7" value="b" />b) Ser visto como
+        membro valioso de um grupo<br />
+        <input type="radio" name="question7" value="c" />c) Sonhar em
+        transformar o mundo<br />
+        <input type="radio" name="question7" value="d" />d) Desvendar um enigma
+        ou inventar algo útil<br />
+      </div>
+      <div class="campo">
+        <p>8. A vida é mais interessante quando você tem:</p>
+        <input type="radio" name="question8" value="a" />a) Causar impacto: os
+        “holofotes” o atraem<br />
+        <input type="radio" name="question8" value="b" />b) Ser visto como
+        membro valioso de um grupo<br />
+        <input type="radio" name="question8" value="c" />c) Sonhar em
+        transformar o mundo<br />
+        <input type="radio" name="question8" value="d" />d) Desvendar um enigma
+        ou inventar algo útil<br />
+      </div>
+      <div class="campo">
+        <p>9. A vida é mais interessante quando você tem:</p>
+        <input type="radio" name="question9" value="a" />a) Um craque na
+        profissão que escolher<br />
+        <input type="radio" name="question9" value="b" />b) Um executivo
+        bem-sucedido<br />
+        <input type="radio" name="question9" value="c" />c) Um profissional de
+        prestígio<br />
+        <input type="radio" name="question9" value="d" />d) Um especialista ou
+        um cientista<br />
+      </div>
+      <div class="campo">
+        <p>10. Você é muito bom lidando com:</p>
+        <input type="radio" name="question10" value="a" />a) Ferramentas,
+        instrumentos e equipamentos<br />
+        <input type="radio" name="question10" value="b" />b) Controle do tempo,
+        comando e execução<br />
+        <input type="radio" name="question10" value="c" />c) Pessoas de todos os
+        níveis sociais e culturais<br />
+        <input type="radio" name="question10" value="d" />d) Sistemas e
+        construção (material ou mental)<br />
+      </div>
+      <div class="campo">
+        <p>11. Antes de agir, você analisa:</p>
+        <input type="radio" name="question11" value="a" />a) As vantagens
+        imediatas<br />
+        <input type="radio" name="question11" value="b" />b) As experiências já
+        vividas<br />
+        <input type="radio" name="question11" value="c" />c) As possibilidades
+        futuras<br />
+        <input type="radio" name="question11" value="d" />d) As condições e
+        consequências<br />
+      </div>
+      <div class="campo">
+        <p>12. Gosta quando as pessoas:</p>
+        <input type="radio" name="question12" value="a" />a) O surpreendem com
+        um presente<br />
+        <input type="radio" name="question12" value="b" />b) Expressam gratidão
+        por algo que fez<br />
+        <input type="radio" name="question12" value="c" />c) Reconhecem sua
+        personalidade singular<br />
+        <input type="radio" name="question12" value="d" />d) Reconhecem sua
+        inteligência<br />
+      </div>
+      <div class="campo">
+        <p>13. Você costuma abraçar um novo projeto:</p>
+        <input type="radio" name="question13" value="a" />a) Com a cara e a
+        coragem<br />
+        <input type="radio" name="question13" value="b" />b) Guiado pela
+        experiência<br />
+        <input type="radio" name="question13" value="c" />c) Confiando na
+        intuição e na criatividade<br />
+        <input type="radio" name="question13" value="d" />d) Depois de verificar
+        todas as variáveis<br />
+      </div>
+      <div class="campo">
+        <p>14. Geralmente, você prefere agir:</p>
+        <input type="radio" name="question14" value="a" />a) No calor do
+        momento<br />
+        <input type="radio" name="question14" value="b" />b) Com segurança e
+        conforme o costume<br />
+        <input type="radio" name="question14" value="c" />c) Quando está
+        inspirado<br />
+        <input type="radio" name="question14" value="d" />d) Quando um problema
+        o desafia<br />
+      </div>
+      <div class="campo">
+        <p>15. Você fica motivado quando:</p>
+        <input type="radio" name="question15" value="a" />a) Tem a oportunidade
+        de superar obstáculos<br />
+        <input type="radio" name="question15" value="b" />b) Experimenta
+        estabilidade na vida profissional, ou seja, sabe em que terreno está
+        pisando<br />
+        <input type="radio" name="question15" value="c" />c) Harmonia e
+        inspiração guiam a atividade<br />
+        <input type="radio" name="question15" value="d" />d) Há liberdade para
+        projetar o futuro<br />
+      </div>
+      <div class="campo">
+        <p>16. Em atividades em grupo, você prefere:</p>
+        <input type="radio" name="question16" value="a" />a) As desafiadoras,
+        que exigem ação rápida<br />
+        <input type="radio" name="question16" value="b" />b) Administrar os
+        recursos disponíveis<br />
+        <input type="radio" name="question16" value="c" />c) Motivar as pessoas
+        para darem o melhor de si<br />
+        <input type="radio" name="question16" value="d" />d) Descartar logo o
+        que não funciona<br />
+      </div>
+      <div class="campo">
+        <p>17. Liderar é uma atividade que gosta de exercer:</p>
+        <input type="radio" name="question17" value="a" />a) Por pouco tempo e
+        dependendo da situação<br />
+        <input type="radio" name="question17" value="b" />b) Quando pode
+        comandar do começo ao fim<br />
+        <input type="radio" name="question17" value="c" />c) Quando é preciso
+        identificar e reunir talentos<br />
+        <input type="radio" name="question17" value="d" />d) Quando o raciocínio
+        estratégico é necessário<br />
+      </div>
+      <div class="campo">
+        <p>18. Em uma escola, você gostaria de ser:</p>
+        <input type="radio" name="question18" value="a" />a) Professor de
+        educação física<br />
+        <input type="radio" name="question18" value="b" />b) Diretor<br />
+        <input type="radio" name="question18" value="c" />c) Professor de
+        literatura<br />
+        <input type="radio" name="question18" value="d" />d) Professor de
+        matemática ou física<br />
+      </div>
+      <div class="campo">
+        <p>19. É um elogio quando se referem a você como:</p>
+        <input type="radio" name="question19" value="a" />a) Corajoso, otimista
+        e divertido<br />
+        <input type="radio" name="question19" value="b" />b) Cauteloso,
+        responsável e aplicado<br />
+        <input type="radio" name="question19" value="c" />c) Harmonizador,
+        íntegro e sábio<br />
+        <input type="radio" name="question19" value="d" />d) Uma mente
+        brilhante<br />
+      </div>
+      <div class="campo">
+        <p>20. Frase que têm a ver com você:</p>
+        <input type="radio" name="question20" value="a" />a) “Deixo a vida me
+        levar...”<br />
+        <input type="radio" name="question20" value="b" />b) “Manda quem pode;
+        obedece quem tem juízo”<br />
+        <input type="radio" name="question20" value="c" />c) “Para seu próprio
+        interesse, seja verdadeiro”<br />
+        <input type="radio" name="question20" value="d" />d) “Penso, logo
+        existo”<br />
+      </div>
+      <button class="botao" type="submit" onclick="getCareer()">Obter Resultado</button>
+    </form>
+      <div class="campo">
+        <div id="result" class="resultado"></div>
+        <div id="result1" class="resultadoText"></div>
+        <div id="result2"></div>
+        <div ><button class="botao"><a href="formulario.php" style="text-decoration: none;">Voltar pagina incial</a></button></div>
+      </div>
+    </main>
+    <script>
+      function fazPost(url, body) {
+        let request = new XMLHttpRequest();
+        request.open("POST", url, true);
+        request.setRequestHeader("Content-type", "application/json");
+        request.send(JSON.stringify(body));
+
+        request.onload = function () {};
+
+        return request.responseText;
+      }
+
+      // Captura o valor do campo input
+      function enviarDados() {
+        event.preventDefault();
+        let url = "";
+        let name = document.getElementById("nome").value;
+        let sobrenome = document.getElementById("sobrenome").value;
+        let telefone = document.getElementById("Telefone").value;
+        let cidade = document.getElementById("cidade").value;
+        console.log("teste");
+
+        body = {
+          name: name,
+          sobrenome: sobrenome,
+          telefone: telefone,
+          cidade: cidade
+        };
+      }
+      function getCareer() {
+        var questions = [
+          "question1",
+          "question2",
+          "question3",
+          "question4",
+          "question5",
+          "question6",
+          "question7",
+          "question8",
+          "question9",
+          "question10",
+          "question11",
+          "question12",
+          "question13",
+          "question14",
+          "question15",
+          "question16",
+          "question17",
+          "question18",
+          "question19",
+          "question20",
+        ];
+        var careers = { a: 0, b: 0, c: 0, d: 0 };
+
+        for (var i = 0; i < questions.length; i++) {
+          var radios = document.getElementsByName(questions[i]);
+          for (var j = 0; j < radios.length; j++) {
+            if (radios[j].checked) {
+              careers[radios[j].value]++;
+            }
+          }
+        }
+
+        var max = 0;
+        var career = "";
+        for (var key in careers) {
+          console.log(key);
+
+          if (careers[key] > max) {
+            max = careers[key];
+            career = key;
+          }
+        }
+        console.log(career);
+        if (career == "a") {
+          document.getElementById("result").innerHTML =
+            "Sua maior pontuação foi em: a)";
+          document.getElementById("result1").innerHTML =
+            "A principal característica dos relacionados com a opção a), é o " +
+            "movimento; gostam de novidade. Apresentam destreza física e boa expressão " +
+            "corporal. Se forem mais propensos ao raciocínio lógico, terão mais êxito em " +
+            "profissões que requeiram precisão e acuidade. Se forem mais inclinados ao" +
+            "sentimento e à emoção, as profissões relacionadas ao trato com pessoas são " +
+            "as mais indicadas. Pessoas assim, não gostam de rotina e veem o trabalho " +
+            "como uma grande fonte de prazer.);<br>Carreiras mais apropriadas:<br>Esportista";
+          document.getElementById("result2").innerHTML =
+            "- Anestesista<br>" +
+            "- Artista Plástico<br>" +
+            "- Ator<br>" +
+            "- Chef de Cozinha<br>" +
+            "- Cineasta<br>" +
+            "- Cirurgião<br>" +
+            "- Coreógrafo<br>" +
+            "- Dançarino<br>" +
+            "- Dermatologista<br>" +
+            "- Estilista<br>" +
+            "- Fotógrafo<br>" +
+            "- Guia de Turismo<br>" +
+            "- Instrumentador Cirúrgico<br>" +
+            "- Instrutor de Vôo<br>" +
+            "- Jornalista<br>" +
+            "- Médico Clínico<br>" +
+            "- Músico<br>" +
+            "- Paisagista<br>" +
+            "- Personal Trainner<br>" +
+            "- Personal Stylistic<br>" +
+            "- Piloto<br>" +
+            "- Publicitário<br>" +
+            "- Relações Públicas<br>" +
+            "- Roteirist";
+          // document.getElementById("result").innerHTML = "Sua carreira sugerida é: " + career;
+        } else if (career == "b") {
+          document.getElementById("result").innerHTML =
+            "Maior pontuação em: b)";
+          document.getElementById("result1").innerHTML =
+            "Comando e responsabilidade são duas palavras que definem as pessoas" +
+            "desta opção. Elas gostam de lidar com fatos, quantidades, análises, " +
+            "organização e planejamento. Trabalham duro e preferem profissões que lhes" +
+            "proporcionem status e possibilidade de crescimento. São as mais presentes " +
+            "no mundo corporativo.<br>Carreiras mais apropriadas:<br>";
+          document.getElementById("result2").innerHTML =
+            "- Administrador de Empresas<br>" +
+            "- Advogado<br>" +
+            "- Assistente Social<br>" +
+            "- Bibliotecário<br>" +
+            "- Delegado<br>" +
+            "- Engenheiro Mecânico/Químico<br>" +
+            "- Juiz de Direito<br>" +
+            "- Pastor, Padre, Rabino<br>" +
+            "- Policial<br>" +
+            "- Promotor Público<br>";
+        } else if (career == "c") {
+          document.getElementById("result").innerHTML =
+            "Maior pontuação em: c)";
+          document.getElementById("result1").innerHTML =
+            "Facilmente reconhecíveis por seu entusiasmo e interesse nas relações" +
+            "humanas, as pessoas desta opção têm na intuição o seu ponto forte. Muitas" +
+            "endereçam seu esforço e talento para o desenvolvimento intelectual de" +
+            "alunos e discípulos e o conforto psicológicos de pacientes e colegas de" +
+            "trabalho. No grupo desta opção, estão as personalidades mais contempladas" +
+            "com o Nobel da Paz e de literatura.<br>" +
+            "Carreiras mais apropriadas:<br>";
+          document.getElementById("result2").innerHTML =
+            "- Artista plástico<br>" +
+            "- Dramaturgo<br>" +
+            "- Educador<br>" +
+            "- Escritor<br>" +
+            "- Filósofo<br>" +
+            "- Jornalista<br>" +
+            "- Pedagogo<br>" +
+            "- Professor<br>" +
+            "- Psicólogo<br>" +
+            "- Psiquiatra<br>" +
+            "- Sociólogo<br>" +
+            "- Terapeuta ocupacional<br>" +
+            "- Traduto<br>";
+        } else if (career == "d") {
+          document.getElementById("result").innerHTML =
+            "Maior pontuação em: d)";
+          document.getElementById("result1").innerHTML =
+            "São intuitivos como os da opção anterior, mas, em vez de se preocupar" +
+            "com pessoas, costumam focar seus interesses em grandes áreas do " +
+            "conhecimento, como ciência e tecnologia. Apresentam notável capacidade " +
+            "para identificar problemas concretos e resolvê-los, bem como para o " +
+            "raciocínio abstrato.<br>" +
+            "Carreiras mais apropriadas:<br>";
+          document.getElementById("result2").innerHTML =
+            "- Analista de Sistemas<br>" +
+            "- Antropólogo<br>" +
+            "- Arquiteto<br>" +
+            "- Astrônomo<br>" +
+            "- Criador de Software<br>" +
+            "- Designer Industrial<br>" +
+            "- Economista<br>" +
+            "- Engenheiro<br>" +
+            "- Físico<br>" +
+            "- Líder de uma Corporação<br>" +
+            "- Matemático<br>" +
+            "- Militar<br>" +
+            "- Músico (Regente)<br>" +
+            "- Oceanógrafo<br>" +
+            "- Pesquisador<br>" +
+            "- Químico<br>" +
+            "- Urbanista<br>" +
+            "- Zoólogo";
+        }
+      }
+    </script>
+  </body>
+</html>
