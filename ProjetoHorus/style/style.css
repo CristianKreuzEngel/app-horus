@@ -12,14 +12,15 @@
     padding: 0;
     /* background-color: rgb(245, 126, 22); */
 }
+/*heigth 150px*/
 .logo{
-    height: 150px;
+    height: auto; 
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
 }
 .cabecalho{
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     display: flex;
@@ -30,7 +31,7 @@
 #titulo {
     font-family: sans-serif;
     color: #fff;
-    margin-left: 7%;
+    margin-left: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -53,19 +54,24 @@ fieldset {
 }
 .container{
     /* background-color: rgb(245, 126, 22); */
-    margin-left: 36%;
-    /* align-items: center; */
-    /* display: flex; */
-    /* flex-direction: column; */
+    /* margin-left: 36%; */
+    align-items: center;
+    display: flex; 
+    flex-direction: column;
 }
+/* .campo-contaner{
+    justify-content: left;
+    display: flex;
+    flex-direction: column;
+} */
+
 /* Elemento de tag <body> */
 body{
     background-color: #fff;
     font-family: sans-serif;
     font-size: 1em;
     color: rgb(0, 0, 0);
-    /* margin-left: 36%; */
-    margin-top: 2%;
+    /* text-align: center; */
     justify-content: center;
 }
 
@@ -75,11 +81,12 @@ input, select, textarea, button {
     font-size: 1em;
     color: rgb(245, 126, 22);
     border-radius: 5px;
+    align-items: center;
 }
 
 /* Elementos de classe "grupo" nos estados das pseudoclasses "before" e "after" */
 .grupo:before, .grupo:after {
-    display: table;
+    display: flex;
 }
 
 /* Elementos de classe "grupo" no estado da pseudoclasse "after" */
@@ -90,36 +97,46 @@ input, select, textarea, button {
 /* Elementos de classe "campo" */
 .campo {
     margin-bottom: 1em;
+    margin-left: 25px;
+    
 }
 
 /* Elementos de classe "campo" de tag <label> */
 .campo label {
     margin-bottom: 0.2em;
     color: rgb(245, 126, 22);
-    display: block;
+    display: flex;
+    justify-content:left;
+    align-items: start;
 }
 .resultado{
     margin-bottom: 0.2em;
     color: rgb(245, 126, 22);
     font-weight: bold;
-    display: block; 
+    display: flex; 
 }
 .resultadoText{
     margin-bottom: 0.2em;
     font-weight: bold;
-    display: block;  
+    /* display: block;   */
 }
 .campo p {
-    margin-bottom: 0.2em;
+    margin-bottom: 1em;
     color: rgb(245, 126, 22);
     font-weight: bold;
+    /* display: flex; */
     display: block;
+    text-align: left;
+    margin: 15px;
 }
 
 /* Elementos de classe "campo" ou "grupo" de tag <fieldset> */
 fieldset.grupo .campo {
-    float:  left;
+    /* float:  left; */
     margin-right: 1em;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Elementos de classe "campo" das tags <input> com atributo text e email, da tag <select> e da tag <textarea>*/
@@ -127,7 +144,8 @@ fieldset.grupo .campo {
     padding: 0.2em;
     border: 1px solid #fff;
     box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
-    display: block;
+    display: flex;
+    
 }
 
 /* Elementos de classe "campo" de tag <select> e <option>*/
@@ -166,3 +184,4 @@ fieldset.grupo .campo {
 .botao, select{
     cursor: pointer;
 }
+
